@@ -1,0 +1,363 @@
+<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경호 - 재난안전소방학 전공생 프로필</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.6;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Profile Header Section */
+        .profile-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .profile-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-name {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .profile-subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .contact-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 50px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e74c3c;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        .intro-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Daily Schedule */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .schedule-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .schedule-item:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Education Section */
+        .education-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .education-school {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .education-major {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        /* Detailed Sections */
+        .detail-section {
+            background: #ffffff;
+            margin: 0;
+            padding: 40px 50px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .detail-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #c0392b;
+            margin-bottom: 25px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .detail-content {
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #2c3e50;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        .emphasis {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Icon styling */
+        .fa {
+            margin-right: 8px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 0;
+            }
+            
+            .profile-header, .content-section, .detail-section {
+                padding: 30px 25px;
+            }
+            
+            .profile-name {
+                font-size: 2.2em;
+            }
+            
+            .contact-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles for PDF export */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .main-container {
+                box-shadow: none;
+                max-width: none;
+            }
+            
+            .schedule-item:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Profile Header -->
+        <section class="profile-header">
+            <div class="profile-content">
+                <h1 class="profile-name">배경호</h1>
+                <p class="profile-subtitle">재난안전소방학 전공 대학생</p>
+                <div class="contact-badges">
+                    <div class="contact-badge">
+                        <i class="fas fa-envelope"></i>
+                        qorudghek@naver.com
+                    </div>
+                    <div class="contact-badge">
+                        <i class="fas fa-phone"></i>
+                        010-7556-9770
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="content-section">
+            <h2 class="section-title"><i class="fas fa-fire"></i>소개</h2>
+            <p class="intro-text">
+                안녕하세요! 저는 재난안전소방학을 전공하는 대학생입니다.<br> 
+                현재는 소방설비기사(전기)자격증, 소방공무원 가산점을 취득하기 위해 공부를 하고 있습니다.<br>
+                꾸준함을 바탕으로 성장하는 것을 좋아합니다.
+            </p>
+        </section>
+
+        <!-- Daily Schedule -->
+        <section class="content-section">
+            <h2 class="section-title"><i class="fas fa-calendar-alt"></i>일일 계획</h2>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <i class="fas fa-sun"></i> 08:00 기상 및 스트레칭
+                </div>
+                <div class="schedule-item">
+                    <i class="fas fa-book-open"></i> 08:00~10:00 자격증 & 가산점 공부
+                </div>
+                <div class="schedule-item">
+                    <i class="fas fa-school"></i> 10:00~14:00 인강 수업
+                </div>
+                <div class="schedule-item">
+                    <i class="fas fa-running"></i> 14:00~16:00 체력단련
+                </div>
+                <div class="schedule-item">
+                    <i class="fas fa-pencil-alt"></i> 16:00~23:00 기출문제 풀이 & 오답노트
+                </div>
+                <div class="schedule-item">
+                    <i class="fas fa-moon"></i> 24:00 취침
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="content-section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i>학력</h2>
+            <div class="education-item">
+                <div class="education-school">
+                    <i class="fas fa-university"></i> 건양대학교
+                </div>
+                <div class="education-major">재난안전소방학과 (2020 - 현재)</div>
+            </div>
+        </section>
+
+        <!-- Detailed Sections -->
+        <section class="detail-section">
+            <h2 class="detail-title">1. 소개 및 성장 배경</h2>
+            <div class="detail-content">
+                안녕하세요. <strong>재난안전소방학을 전공 중인 배경호</strong>입니다.<br><br>
+                저는 어린 시절부터 '누군가의 안전을 지키는 일'에 매력을 느껴왔습니다. 특히, 실제 재난 현장에서 사람을 구조하는 소방관의 모습을 보며 깊은 감동을 받았고, 자연스럽게 이 길을 진로로 삼게 되었습니다.<br><br>
+                가족과 주변사람을 먼저 생각하는 따뜻한 마음, 그리고 어떤 일이든 끝까지 책임지려는 끈기는 지금까지 저의 가장 큰 힘입니다.
+            </div>
+        </section>
+
+        <section class="detail-section">
+            <h2 class="detail-title">2. 성격의 장단점 및 가치관</h2>
+            <div class="detail-content">
+                저는 일에 있어 '<strong>꾸준함과 신뢰</strong>'를 중요하게 생각하는 사람입니다.<br><br>
+                맡은 일을 계획적으로 수행하며, 예상치 못한 상황에도 유연하게 대응하려 노력합니다.<br><br>
+                반면, 한 가지 일에 몰입하면 주변 상황을 놓치는 경우가 있어 최근에는 <strong>시간 관리와 우선순위 정리</strong>를 훈련하며 이를 보완하고 있습니다.<br><br>
+                저의 핵심 가치관은 '<span class="highlight">책임 있는 태도는 작은 실천에서 시작된다</span>'입니다.
+            </div>
+        </section>
+
+        <section class="detail-section">
+            <h2 class="detail-title">3. 학업 및 전공 선택 이유</h2>
+            <div class="detail-content">
+                저는 <strong>단순한 직업이 아닌, 사람을 위한 기술</strong>을 배우고 싶었습니다.<br><br>
+                재난안전소방학은 이론뿐 아니라 실제 현장 대응에 필요한 지식과 시스템을 함께 배울 수 있는 학문입니다. 특히, 사고 예방과 대응 시스템을 과학적으로 접근한다는 점에서 큰 흥미를 느끼고 있습니다.<br><br>
+                현재는 <strong>소방설비기사(전기)</strong> 자격증 취득, 실용글쓰기 가산점 취득을 목표로 실습 수업과 학업에 집중하며, 실무 중심의 학습을 이어가고 있습니다.
+            </div>
+        </section>
+
+        <section class="detail-section">
+            <h2 class="detail-title">4. 경험 및 활동 사항</h2>
+            <div class="detail-content">
+                작년 시험을 준비하면서 느낀 경험을 바탕으로 부족한 부분과 보완해 나아가야할 점을 깨달았고, 특히 체력시험의 경우 단기간에 고득점을 얻기에는 어렵다고 판단했습니다.<br><br>
+                따라서 공무원 체력시험을 대비하기 위해 개인 체력 목표를 정하고, 조깅과 근력운동을 통해 꾸준히 몸을 단련하고 있습니다.<br><br>
+                또한 부족하다고 느낀 유연성을 늘리기 위해 스트레칭을 틈날때마다 꾸준히 하고 공부와 체력 준비를 병행하면서, 신체적/정신적 균형을 유지하고 있습니다.
+            </div>
+        </section>
+
+        <section class="detail-section">
+            <h2 class="detail-title">5. 진로 목표 및 포부</h2>
+            <div class="detail-content">
+                저의 최종 목표는 <strong>현장성과 전문성을 갖춘 소방관</strong>으로 성장하는 것입니다.<br><br>
+                국민의 안전을 최우선으로 생각하며, 신뢰받는 소방공무원으로 성장하고자 합니다. 현장에서는 침착하고 정확한 대응으로 주민들의 생명과 재산을 보호하며,<br><br>
+                첨단 기술과 재난 예측 시스템을 꾸준히 학습해 전문성을 갖춘 안전 지킴이가 되겠습니다.<br><br>
+                <span class="emphasis">작은 실천이 안전을 만들고, 신뢰를 지키는 길이 될 것이라 믿습니다.</span>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
